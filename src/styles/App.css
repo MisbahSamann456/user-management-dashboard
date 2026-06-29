@@ -456,128 +456,83 @@ body {
 }
 
 /* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+/* Tablet landscape: 769px–900px — slim icon sidebar */
 @media (max-width: 900px) {
-  .sidebar       { width: 56px; }
-  .sidebar__title,
-  .sidebar__subtitle,
-  .nav-item__badge,
-  .sidebar__section-label,
-  .sidebar__user-info { display: none; }
-  .nav-item      { justify-content: center; }
-  .sidebar__brand { justify-content: center; padding: 16px 10px; }
-  .stats-row     { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 600px) {
-  .sidebar__nav {
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .sidebar__nav::-webkit-scrollbar { display: none; }
-
-  .nav-item span:not(.nav-item__icon) { display: none; }
-
-  .nav-item { 
-    padding: 6px;
-    min-width: 36px;
-    justify-content: center;
-  }
-
-  .sidebar__brand { padding: 8px; }
-  .sidebar__logo  { width: 28px; height: 28px; font-size: 14px; }
-}
+/* Tablet portrait + mobile: 768px and below — horizontal top navbar */
 @media (max-width: 768px) {
+  .app { flex-direction: column; }
+
   .sidebar {
-    width: 100%;
-    height: auto;
+    width:          100%;
+    height:         auto;
     flex-direction: row;
-    align-items: center;
+    align-items:    center;
     justify-content: space-between;
-    padding: 8px 12px;
-    position: relative;
+    padding:        8px 12px;
+    position:       relative;
+    overflow:       visible;
   }
 
+  .sidebar__brand {
+    padding:       8px;
+    border-bottom: none;
+    flex-shrink:   0;
+  }
+
+  .sidebar__logo { width: 28px; height: 28px; font-size: 14px; }
+
+  .sidebar__title,
+  .sidebar__subtitle { display: none; }
+
   .sidebar__nav {
+    flex:           1;
     flex-direction: row;
-    padding: 0;
-    gap: 4px;
-    overflow-x: auto;
+    padding:        0 8px;
+    gap:            2px;
+    overflow-x:     auto;
     scrollbar-width: none;
   }
 
   .sidebar__nav::-webkit-scrollbar { display: none; }
 
-  .sidebar__title,
-  .sidebar__subtitle,
-  .nav-item__badge,
-  .sidebar__section-label,
-  .sidebar__user-info { display: none; }
+  .sidebar__section-label { display: none; }
 
   .nav-item {
     justify-content: center;
-    padding: 6px 8px;
-    min-width: 36px;
+    padding:         8px;
+    min-width:       40px;
+    flex-shrink:     0;
   }
 
   .nav-item span:not(.nav-item__icon) { display: none; }
-
-  .sidebar__brand { 
-    padding: 8px;
-    border-bottom: none;
-  }
-
-  .sidebar__footer {
-    border-top: none;
-    padding: 0;
-  }
+  .nav-item__badge                    { display: none; }
 
   .sidebar__divider { display: none; }
 
-  .app { flex-direction: column; }
-
-  .app__main { width: 100%; }
-}
-@media (max-width: 600px) {
-  .app { flex-direction: column; }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    position: relative;
-  }
-
-  .sidebar__nav {
-    flex-direction: row;
-    padding: 0;
-    gap: 4px;
-  }
-
-  .nav-item {
-    padding: 6px 8px;
-    font-size: 18px;
-  }
-
   .sidebar__footer {
-    border-top: none;
-    padding: 0;
+    border-top:  none;
+    padding:     0;
+    flex-shrink: 0;
   }
 
-  .app__main { width: 100%; }
+  .sidebar__user-info { display: none; }
 
-  .page-content { padding: 12px; }
-
-  .stats-row { grid-template-columns: 1fr; }
-
-  .toolbar { flex-direction: column; }
-
-  .search-bar { width: 100%; }
-
-  .topbar { padding: 10px 12px; flex-wrap: wrap; }
-
+  .app__main    { width: 100%; }
+  .page-content { padding: 14px; }
+  .stats-row    { grid-template-columns: 1fr 1fr; }
+  .toolbar      { flex-direction: column; }
+  .search-bar   { width: 100%; }
+  .topbar       { padding: 10px 12px; flex-wrap: wrap; }
   .topbar__title { font-size: 14px; }
+}
+
+/* Mobile small: 480px and below */
+@media (max-width: 480px) {
+  .stats-row    { grid-template-columns: 1fr; }
+  .page-content { padding: 12px; }
+  .nav-item     { min-width: 36px; padding: 6px; }
 }
